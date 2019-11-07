@@ -1,19 +1,19 @@
 pipeline {
 	agent {
 		docker {
-			image 'python:3.7.2'
+			image "python:3.7.2"
 		}
 	}
 	stages {
-		stage ('Build - Setup Requirements'){
+		stage ("Build - Setup Requirements"){
 			steps {
 			    echo "$USER"
-				sh 'pip install -r requirements.txt'
+				sh "sudo -H pip install -r requirements.txt"
 			}
 		}
-		stage ('Test') {
+		stage ("Test - Unittest") {
 			steps {
-				sh 'python -m unittest discover tests'
+				sh "python -m unittest discover tests"
 			}
 		}
 	}
