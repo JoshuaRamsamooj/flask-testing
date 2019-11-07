@@ -1,14 +1,18 @@
 pipeline {
-	agent any
+	agent {
+		docker {
+			image 'python:3.7.2'
+		}
+	}
 	stages {
 		stage ('Build - Setup Requirements'){
 			steps {
-				sh 'pip3 install -r requirements.txt'
+				sh 'pip install -r requirements.txt'
 			}
 		}
 		stage ('Test') {
 			steps {
-				sh 'python3 -m unittest discover tests'
+				sh 'python -m unittest discover tests'
 			}
 		}
 	}
