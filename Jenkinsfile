@@ -8,7 +8,8 @@ pipeline {
 		stage ("Build - Setup Requirements"){
 			steps {
 			    echo "$USER"
-				sh "sudo --user pi pip install -r requirements.txt"
+			    echo "$HOME"
+				sh "pip install -r requirements.txt"
 			}
 		}
 		stage ("Test - Unittest") {
