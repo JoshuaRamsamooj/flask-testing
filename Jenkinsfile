@@ -7,12 +7,13 @@ pipeline {
 	stages {
 		stage ('Build - Setup Requirements'){
 			steps {
-				sh 'sudo -H pip install -r requirements.txt'
+			    echo "$USER"
+				sh 'pip install -r requirements.txt'
 			}
 		}
 		stage ('Test') {
 			steps {
-				sh 'sudo -H python -m unittest discover tests'
+				sh 'python -m unittest discover tests'
 			}
 		}
 	}
