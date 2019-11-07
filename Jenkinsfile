@@ -7,8 +7,7 @@ pipeline {
 	stages {
 		stage ("Build - Setup Requirements"){
 			steps {
-			    echo "$USER"
-			    echo "$HOME"
+			    echo "$USER $HOME"
 				sh "pip install -r requirements.txt"
 			}
 		}
