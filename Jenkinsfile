@@ -14,7 +14,12 @@ pipeline {
 		}
 		stage ("Test - Unittest") {
 			steps {
-				sh "python -m unittest discover tests"
+				sh "python tests/__init__.py"
+			}
+			post {
+			    always {
+			        junit 'test-reports/*.xml'
+			    }
 			}
 		}
 	}

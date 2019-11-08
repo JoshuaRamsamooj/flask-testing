@@ -40,3 +40,5 @@ class TestRoutes(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response_data['status'], True)
         self.assertEqual(response_data['name'], 'joshua')
+
+
